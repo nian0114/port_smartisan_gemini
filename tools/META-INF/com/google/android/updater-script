@@ -1,0 +1,471 @@
+ui_print("Target: SMARTISAN/Xiaomi5/Xiaomi5:6.0.1/MXB48T/23:user/release-keys");
+show_progress(0.750000, 130);
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system", "data=ordered,barrier=1,errors=remount-ro");
+package_extract_file("system/etc/gmsutil.sh", "/tmp/gmsutil.sh");
+set_metadata("/tmp/gmsutil.sh", "uid", 0, "gid", 0, "mode", 0777);
+run_program("/tmp/gmsutil.sh", "backup");
+unmount("/system");
+ui_print("back up successfully");
+format("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "0", "/system");
+mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/system", "/system", "max_batch_time=0,commit=1,data=ordered,barrier=1,errors=panic,nodelalloc");
+package_extract_dir("system", "/system");
+symlink("/data/dalvik-cache/arm64/system@usr@share@log-crawler@LogCrawler.apk@classes.dex", "/system/usr/share/log-crawler/arm64/LogCrawler.odex");
+symlink("/data/misc/audio/mbhc.bin", "/system/etc/firmware/wcd9320/wcd9320_mbhc.bin");
+symlink("/data/misc/audio/wcd9320_anc.bin", "/system/etc/firmware/wcd9320/wcd9320_anc.bin");
+symlink("/data/misc/audio/wcd9320_mad_audio.bin", "/system/etc/firmware/wcd9320/wcd9320_mad_audio.bin");
+symlink("/data/tombstones/lpass", "/system/rfs/mdm/adsp/ramdumps",
+        "/system/rfs/msm/adsp/ramdumps");
+symlink("/data/tombstones/modem", "/system/rfs/apq/gnss/ramdumps",
+        "/system/rfs/mdm/mpss/ramdumps",
+        "/system/rfs/msm/mpss/ramdumps");
+symlink("/data/tombstones/sparrow", "/system/rfs/mdm/sparrow/ramdumps");
+symlink("/dev/block/bootdevice/by-name/msadp", "/system/etc/firmware/msadp");
+symlink("/firmware", "/system/rfs/apq/gnss/readonly/firmware",
+        "/system/rfs/mdm/adsp/readonly/firmware",
+        "/system/rfs/mdm/mpss/readonly/firmware",
+        "/system/rfs/mdm/sparrow/readonly/firmware",
+        "/system/rfs/msm/adsp/readonly/firmware",
+        "/system/rfs/msm/mpss/readonly/firmware");
+symlink("/persist/hlos_rfs/shared", "/system/rfs/apq/gnss/hlos",
+        "/system/rfs/mdm/adsp/hlos", "/system/rfs/mdm/mpss/hlos",
+        "/system/rfs/mdm/sparrow/hlos", "/system/rfs/msm/adsp/hlos",
+        "/system/rfs/msm/mpss/hlos");
+symlink("/persist/rfs/apq/gnss", "/system/rfs/apq/gnss/readwrite");
+symlink("/persist/rfs/mdm/adsp", "/system/rfs/mdm/adsp/readwrite");
+symlink("/persist/rfs/mdm/mpss", "/system/rfs/mdm/mpss/readwrite");
+symlink("/persist/rfs/mdm/sparrow", "/system/rfs/mdm/sparrow/readwrite");
+symlink("/persist/rfs/msm/adsp", "/system/rfs/msm/adsp/readwrite");
+symlink("/persist/rfs/msm/mpss", "/system/rfs/msm/mpss/readwrite");
+symlink("/persist/rfs/shared", "/system/rfs/apq/gnss/shared",
+        "/system/rfs/mdm/adsp/shared", "/system/rfs/mdm/mpss/shared",
+        "/system/rfs/mdm/sparrow/shared", "/system/rfs/msm/adsp/shared",
+        "/system/rfs/msm/mpss/shared");
+symlink("/persist/wlan_mac.bin", "/system/etc/firmware/wlan/qca_cld/wlan_mac.bin");
+symlink("/persist/wlan_random_mac.bin", "/system/etc/firmware/wlan/qca_cld/wlan_random_mac.bin");
+symlink("/system/build.prop", "/system/vendor/Default/system/build.prop.link");
+symlink("/system/etc/apns-conf.xml", "/system/vendor/Default/system/etc/apns-conf.xml.link");
+symlink("/system/etc/cdma_call_conf.xml", "/system/vendor/Default/system/etc/cdma_call_conf.xml.link");
+symlink("/system/etc/spn-conf.xml", "/system/vendor/Default/system/etc/spn-conf.xml.link");
+symlink("/system/etc/wifi/WCNSS_qcom_cfg.ini", "/system/etc/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini");
+symlink("/system/lib/libBCREngine.so", "/system/app/CameraSmartisan/lib/arm/libBCREngine.so");
+symlink("/system/lib/libafp1.so", "/system/app/MusicPlayer/lib/arm/libafp1.so");
+symlink("/system/lib/libaudiokernelplus.so", "/system/app/MusicPlayer/lib/arm/libaudiokernelplus.so");
+symlink("/system/lib/libbluetooth_jni.so", "/system/app/Bluetooth/lib/arm/libbluetooth_jni.so");
+symlink("/system/lib/libencryptor.so", "/system/app/MusicPlayer/lib/arm/libencryptor.so");
+symlink("/system/lib/libjni_eglfence_smartisan.so", "/system/app/GallerySmartisan/lib/arm/libjni_eglfence_smartisan.so");
+symlink("/system/lib/libmediaapiplus.so", "/system/app/MusicPlayer/lib/arm/libmediaapiplus.so");
+symlink("/system/lib/libner.so", "/system/app/TextBoom/lib/arm/libner.so");
+symlink("/system/lib/libsecuritysdk-1.2.36.so", "/system/app/CameraSmartisan/lib/arm/libsecuritysdk-1.2.36.so");
+symlink("/system/lib/libtbdecode.so", "/system/app/CameraSmartisan/lib/arm/libtbdecode.so");
+symlink("/system/lib/libttsplusmsc.so", "/system/app/SpeechService/lib/arm/libttsplusmsc.so");
+symlink("/system/lib/libwordseg.so", "/system/app/TextBoom/lib/arm/libwordseg.so");
+symlink("/system/lib/libwordsegment.so", "/system/app/TextBoom/lib/arm/libwordsegment.so");
+symlink("/system/lib/libxiamitag.so", "/system/app/MusicPlayer/lib/arm/libxiamitag.so");
+symlink("/system/lib/modules/qca_cld/qca_cld_wlan.ko", "/system/lib/modules/wlan.ko");
+symlink("/system/lib64/libbitmap_gaussian_blur.so", "/system/priv-app/KeyguardSmartisan/lib/arm64/libbitmap_gaussian_blur.so");
+symlink("/system/lib64/libbitmap_gaussian_blur_fm.so", "/system/app/FileManagerSmartisan/lib/arm64/libbitmap_gaussian_blur_fm.so");
+symlink("/system/lib64/libcrypt_db.so", "/system/app/SecurityCenter/lib/arm64/libcrypt_db.so");
+symlink("/system/lib64/libdefcontainer_jni.so", "/system/priv-app/DefaultContainerService/lib/arm64/libdefcontainer_jni.so");
+symlink("/system/lib64/libfp_gf_mp.so", "/system/app/SensorTest/lib/arm64/libfp_gf_mp.so");
+symlink("/system/lib64/libimscamera_jni.so", "/system/priv-app/ims/lib/arm64/libimscamera_jni.so");
+symlink("/system/lib64/libimsmedia_jni.so", "/system/priv-app/ims/lib/arm64/libimsmedia_jni.so");
+symlink("/system/lib64/libjingle_peerconnection_so.so", "/system/app/HandInHand/lib/arm64/libjingle_peerconnection_so.so");
+symlink("/system/lib64/libjni_latinime.so", "/system/app/LatinIME/lib/arm64/libjni_latinime.so");
+symlink("/system/lib64/libjni_pacprocessor.so", "/system/app/PacProcessor/lib/arm64/libjni_pacprocessor.so");
+symlink("/system/lib64/liblauncher_gaussian_blur.so", "/system/priv-app/LauncherOrigSmartisan/lib/arm64/liblauncher_gaussian_blur.so");
+symlink("/system/lib64/liblocSDK5.so", "/system/priv-app/PhoneNumberAssistant/lib/arm64/liblocSDK5.so");
+symlink("/system/lib64/libnotes_bitmap_blue.so", "/system/app/NotesSmartisan/lib/arm64/libnotes_bitmap_blue.so");
+symlink("/system/lib64/libnotes_keystore.so", "/system/app/NotesSmartisan/lib/arm64/libnotes_keystore.so");
+symlink("/system/lib64/libpjsua2.so", "/system/priv-app/PhoneNumberAssistant/lib/arm64/libpjsua2.so");
+symlink("/system/lib64/libprintspooler_jni.so", "/system/app/PrintSpooler/lib/arm64/libprintspooler_jni.so");
+symlink("/system/lib64/libsettings_bitmap_gaussian_blur.so", "/system/app/SmartisanWallpaperProvider/lib/arm64/libsettings_bitmap_gaussian_blur.so");
+symlink("/system/lib64/libsettings_bitmap_gaussian_blur2.so", "/system/priv-app/SettingsSmartisan/lib/arm64/libsettings_bitmap_gaussian_blur2.so");
+symlink("/system/lib64/libsmartdialer_oem_module_x64.so", "/system/priv-app/PhoneNumberAssistant/lib/arm64/libsmartdialer_oem_module_x64.so");
+symlink("/system/lib64/libttscompat.so", "/system/app/PicoTts/lib/arm64/libttscompat.so");
+symlink("/system/lib64/libttspico.so", "/system/app/PicoTts/lib/arm64/libttspico.so");
+symlink("/system/lib64/libweibosdkcore.so", "/system/app/NotesSmartisan/lib/arm64/libweibosdkcore.so");
+symlink("/system/lib64/libweibosdkcoretiqitong.so", "/system/app/WeatherSmartisan/lib/arm64/libweibosdkcoretiqitong.so");
+symlink("/system/lib64/libxy-algorithm.so", "/system/priv-app/PhoneNumberAssistant/lib/arm64/libxy-algorithm.so");
+symlink("/system/vendor/default.prop", "/system/vendor/Default/system/vendor/default.prop.link");
+symlink("/system/vendor/lib64/libnqnfc_nci_jni.so", "/system/vendor/app/NQNfcNci/lib/arm64/libnqnfc_nci_jni.so");
+symlink("/system/xbin/busybox", "/system/xbin/[", "/system/xbin/[[",
+        "/system/xbin/acpid", "/system/xbin/addgroup", "/system/xbin/adduser",
+        "/system/xbin/adjtimex", "/system/xbin/arp", "/system/xbin/arping",
+        "/system/xbin/ash", "/system/xbin/awk", "/system/xbin/basename",
+        "/system/xbin/beep", "/system/xbin/blkid", "/system/xbin/bootchartd",
+        "/system/xbin/brctl", "/system/xbin/bunzip2", "/system/xbin/bzcat",
+        "/system/xbin/bzip2", "/system/xbin/cal", "/system/xbin/cat",
+        "/system/xbin/catv", "/system/xbin/chat", "/system/xbin/chattr",
+        "/system/xbin/chgrp", "/system/xbin/chmod", "/system/xbin/chown",
+        "/system/xbin/chpasswd", "/system/xbin/chpst", "/system/xbin/chroot",
+        "/system/xbin/chrt", "/system/xbin/chvt", "/system/xbin/cksum",
+        "/system/xbin/clear", "/system/xbin/cmp", "/system/xbin/comm",
+        "/system/xbin/cp", "/system/xbin/cpio", "/system/xbin/crond",
+        "/system/xbin/crontab", "/system/xbin/cryptpw", "/system/xbin/cttyhack",
+        "/system/xbin/cut", "/system/xbin/date", "/system/xbin/dc",
+        "/system/xbin/dd", "/system/xbin/deallocvt", "/system/xbin/delgroup",
+        "/system/xbin/deluser", "/system/xbin/depmod", "/system/xbin/devmem",
+        "/system/xbin/df", "/system/xbin/dhcprelay", "/system/xbin/diff",
+        "/system/xbin/dirname", "/system/xbin/dmesg", "/system/xbin/dnsd",
+        "/system/xbin/dnsdomainname", "/system/xbin/dos2unix",
+        "/system/xbin/du", "/system/xbin/dumpkmap", "/system/xbin/dumpleases",
+        "/system/xbin/echo", "/system/xbin/ed", "/system/xbin/egrep",
+        "/system/xbin/eject", "/system/xbin/env", "/system/xbin/envdir",
+        "/system/xbin/envuidgid", "/system/xbin/ether-wake",
+        "/system/xbin/expand", "/system/xbin/expr", "/system/xbin/fakeidentd",
+        "/system/xbin/false", "/system/xbin/fbset", "/system/xbin/fbsplash",
+        "/system/xbin/fdflush", "/system/xbin/fdformat", "/system/xbin/fdisk",
+        "/system/xbin/fgconsole", "/system/xbin/fgrep", "/system/xbin/find",
+        "/system/xbin/findfs", "/system/xbin/flock", "/system/xbin/fold",
+        "/system/xbin/free", "/system/xbin/freeramdisk", "/system/xbin/fsck",
+        "/system/xbin/fsck.minix", "/system/xbin/fsync", "/system/xbin/ftpd",
+        "/system/xbin/ftpget", "/system/xbin/ftpput", "/system/xbin/fuser",
+        "/system/xbin/getopt", "/system/xbin/getty", "/system/xbin/grep",
+        "/system/xbin/gunzip", "/system/xbin/gzip", "/system/xbin/halt",
+        "/system/xbin/hd", "/system/xbin/hdparm", "/system/xbin/head",
+        "/system/xbin/hexdump", "/system/xbin/hostid", "/system/xbin/hostname",
+        "/system/xbin/httpd", "/system/xbin/hush", "/system/xbin/hwclock",
+        "/system/xbin/id", "/system/xbin/ifconfig", "/system/xbin/ifdown",
+        "/system/xbin/ifenslave", "/system/xbin/ifplugd", "/system/xbin/ifup",
+        "/system/xbin/inetd", "/system/xbin/init", "/system/xbin/insmod",
+        "/system/xbin/install", "/system/xbin/ionice", "/system/xbin/ip",
+        "/system/xbin/ipaddr", "/system/xbin/ipcalc", "/system/xbin/ipcrm",
+        "/system/xbin/ipcs", "/system/xbin/iplink", "/system/xbin/iproute",
+        "/system/xbin/iprule", "/system/xbin/iptunnel", "/system/xbin/kbd_mode",
+        "/system/xbin/kill", "/system/xbin/killall", "/system/xbin/killall5",
+        "/system/xbin/klogd", "/system/xbin/last", "/system/xbin/length",
+        "/system/xbin/less", "/system/xbin/linux32", "/system/xbin/linux64",
+        "/system/xbin/linuxrc", "/system/xbin/ln", "/system/xbin/loadfont",
+        "/system/xbin/loadkmap", "/system/xbin/logger", "/system/xbin/login",
+        "/system/xbin/logname", "/system/xbin/logread", "/system/xbin/losetup",
+        "/system/xbin/lpd", "/system/xbin/lpq", "/system/xbin/lpr",
+        "/system/xbin/ls", "/system/xbin/lsattr", "/system/xbin/lsmod",
+        "/system/xbin/lspci", "/system/xbin/lsusb", "/system/xbin/lzcat",
+        "/system/xbin/lzma", "/system/xbin/lzop", "/system/xbin/lzopcat",
+        "/system/xbin/makedevs", "/system/xbin/makemime", "/system/xbin/man",
+        "/system/xbin/md5sum", "/system/xbin/mdev", "/system/xbin/mesg",
+        "/system/xbin/microcom", "/system/xbin/mkdir", "/system/xbin/mkdosfs",
+        "/system/xbin/mkfifo", "/system/xbin/mkfs.minix",
+        "/system/xbin/mkfs.vfat", "/system/xbin/mknod", "/system/xbin/mkpasswd",
+        "/system/xbin/mkswap", "/system/xbin/mktemp", "/system/xbin/modinfo",
+        "/system/xbin/modprobe", "/system/xbin/more", "/system/xbin/mount",
+        "/system/xbin/mountpoint", "/system/xbin/mt", "/system/xbin/mv",
+        "/system/xbin/nameif", "/system/xbin/netstat", "/system/xbin/nice",
+        "/system/xbin/nmeter", "/system/xbin/nohup", "/system/xbin/nslookup",
+        "/system/xbin/ntpd", "/system/xbin/od", "/system/xbin/openvt",
+        "/system/xbin/passwd", "/system/xbin/patch", "/system/xbin/pgrep",
+        "/system/xbin/pidof", "/system/xbin/ping", "/system/xbin/ping6",
+        "/system/xbin/pipe_progress", "/system/xbin/pivot_root",
+        "/system/xbin/pkill", "/system/xbin/popmaildir",
+        "/system/xbin/poweroff", "/system/xbin/printenv", "/system/xbin/printf",
+        "/system/xbin/ps", "/system/xbin/pscan", "/system/xbin/pwd",
+        "/system/xbin/raidautorun", "/system/xbin/rdate", "/system/xbin/rdev",
+        "/system/xbin/readahead", "/system/xbin/readlink",
+        "/system/xbin/readprofile", "/system/xbin/realpath",
+        "/system/xbin/reboot", "/system/xbin/reformime", "/system/xbin/renice",
+        "/system/xbin/reset", "/system/xbin/resize", "/system/xbin/rev",
+        "/system/xbin/rm", "/system/xbin/rmdir", "/system/xbin/rmmod",
+        "/system/xbin/route", "/system/xbin/rpm", "/system/xbin/rpm2cpio",
+        "/system/xbin/rtcwake", "/system/xbin/run-parts",
+        "/system/xbin/runlevel", "/system/xbin/runsv", "/system/xbin/runsvdir",
+        "/system/xbin/rx", "/system/xbin/script", "/system/xbin/scriptreplay",
+        "/system/xbin/sed", "/system/xbin/sendmail", "/system/xbin/seq",
+        "/system/xbin/setarch", "/system/xbin/setconsole",
+        "/system/xbin/setfont", "/system/xbin/setkeycodes",
+        "/system/xbin/setlogcons", "/system/xbin/setsid",
+        "/system/xbin/setuidgid", "/system/xbin/sh", "/system/xbin/sha1sum",
+        "/system/xbin/sha256sum", "/system/xbin/sha512sum",
+        "/system/xbin/showkey", "/system/xbin/slattach", "/system/xbin/sleep",
+        "/system/xbin/smemcap", "/system/xbin/softlimit", "/system/xbin/sort",
+        "/system/xbin/split", "/system/xbin/start-stop-daemon",
+        "/system/xbin/stat", "/system/xbin/strings", "/system/xbin/stty",
+        "/system/xbin/sulogin", "/system/xbin/sum", "/system/xbin/sv",
+        "/system/xbin/svlogd", "/system/xbin/swapoff", "/system/xbin/swapon",
+        "/system/xbin/switch_root", "/system/xbin/sync", "/system/xbin/sysctl",
+        "/system/xbin/syslogd", "/system/xbin/tac", "/system/xbin/tail",
+        "/system/xbin/tar", "/system/xbin/tcpsvd", "/system/xbin/tee",
+        "/system/xbin/telnet", "/system/xbin/telnetd", "/system/xbin/test",
+        "/system/xbin/tftp", "/system/xbin/tftpd", "/system/xbin/time",
+        "/system/xbin/timeout", "/system/xbin/top", "/system/xbin/touch",
+        "/system/xbin/tr", "/system/xbin/traceroute",
+        "/system/xbin/traceroute6", "/system/xbin/true", "/system/xbin/tty",
+        "/system/xbin/ttysize", "/system/xbin/tunctl", "/system/xbin/udhcpc",
+        "/system/xbin/udhcpd", "/system/xbin/udpsvd", "/system/xbin/umount",
+        "/system/xbin/uname", "/system/xbin/unexpand", "/system/xbin/uniq",
+        "/system/xbin/unix2dos", "/system/xbin/unlzma", "/system/xbin/unlzop",
+        "/system/xbin/unxz", "/system/xbin/unzip", "/system/xbin/uptime",
+        "/system/xbin/usleep", "/system/xbin/uudecode", "/system/xbin/uuencode",
+        "/system/xbin/vconfig", "/system/xbin/vi", "/system/xbin/vlock",
+        "/system/xbin/volname", "/system/xbin/wall", "/system/xbin/watch",
+        "/system/xbin/watchdog", "/system/xbin/wc", "/system/xbin/wget",
+        "/system/xbin/which", "/system/xbin/who", "/system/xbin/whoami",
+        "/system/xbin/xargs", "/system/xbin/xz", "/system/xbin/xzcat",
+        "/system/xbin/yes", "/system/xbin/zcat",
+        "/system/xbin/zcip");
+symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
+symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
+symlink("Smartisan_Compact-Bold.otf", "/system/fonts/Smartisan_Compact-Bold2.otf");
+symlink("Smartisan_Latin-Bold.otf", "/system/fonts/Smartisan_Latin-Bold2.otf");
+symlink("Smartisan_Punc-Bold.otf", "/system/fonts/Smartisan_Punc-Bold2.otf");
+symlink("Smartisan_Punc-Regular.otf", "/system/fonts/Smartisan_Punc-Regular2.otf");
+symlink("app_process64", "/system/bin/app_process");
+symlink("dalvikvm64", "/system/bin/dalvikvm");
+symlink("egl/libEGL_adreno.so", "/system/vendor/lib/libEGL_adreno.so",
+        "/system/vendor/lib64/libEGL_adreno.so");
+symlink("grep", "/system/bin/egrep",
+        "/system/bin/fgrep");
+symlink("libGLESv2.so", "/system/lib/libGLESv3.so",
+        "/system/lib64/libGLESv3.so");
+symlink("toolbox", "/system/bin/dd", "/system/bin/df", "/system/bin/du",
+        "/system/bin/getevent", "/system/bin/iftop", "/system/bin/ioctl",
+        "/system/bin/ionice", "/system/bin/log", "/system/bin/ls",
+        "/system/bin/lsof", "/system/bin/mount", "/system/bin/nandread",
+        "/system/bin/newfs_msdos", "/system/bin/prlimit", "/system/bin/ps",
+        "/system/bin/renice", "/system/bin/sendevent", "/system/bin/start",
+        "/system/bin/stop", "/system/bin/top", "/system/bin/uptime",
+        "/system/bin/watchprops");
+symlink("toybox", "/system/bin/acpi", "/system/bin/basename",
+        "/system/bin/blockdev", "/system/bin/bzcat", "/system/bin/cal",
+        "/system/bin/cat", "/system/bin/chcon", "/system/bin/chgrp",
+        "/system/bin/chmod", "/system/bin/chown", "/system/bin/chroot",
+        "/system/bin/cksum", "/system/bin/clear", "/system/bin/cmp",
+        "/system/bin/comm", "/system/bin/cp", "/system/bin/cpio",
+        "/system/bin/cut", "/system/bin/date", "/system/bin/dirname",
+        "/system/bin/dmesg", "/system/bin/dos2unix", "/system/bin/echo",
+        "/system/bin/env", "/system/bin/expand", "/system/bin/expr",
+        "/system/bin/fallocate", "/system/bin/false", "/system/bin/find",
+        "/system/bin/free", "/system/bin/getenforce", "/system/bin/getprop",
+        "/system/bin/groups", "/system/bin/head", "/system/bin/hostname",
+        "/system/bin/hwclock", "/system/bin/id", "/system/bin/ifconfig",
+        "/system/bin/inotifyd", "/system/bin/insmod", "/system/bin/kill",
+        "/system/bin/ln", "/system/bin/load_policy", "/system/bin/logname",
+        "/system/bin/losetup", "/system/bin/lsmod", "/system/bin/lsusb",
+        "/system/bin/md5sum", "/system/bin/mkdir", "/system/bin/mknod",
+        "/system/bin/mkswap", "/system/bin/mktemp", "/system/bin/modinfo",
+        "/system/bin/more", "/system/bin/mountpoint", "/system/bin/mv",
+        "/system/bin/netstat", "/system/bin/nice", "/system/bin/nl",
+        "/system/bin/nohup", "/system/bin/od", "/system/bin/paste",
+        "/system/bin/patch", "/system/bin/pgrep", "/system/bin/pidof",
+        "/system/bin/pkill", "/system/bin/pmap", "/system/bin/printenv",
+        "/system/bin/printf", "/system/bin/pwd", "/system/bin/readlink",
+        "/system/bin/realpath", "/system/bin/restorecon", "/system/bin/rm",
+        "/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
+        "/system/bin/runcon", "/system/bin/sed", "/system/bin/seq",
+        "/system/bin/setenforce", "/system/bin/setprop", "/system/bin/setsid",
+        "/system/bin/sha1sum", "/system/bin/sleep", "/system/bin/sort",
+        "/system/bin/split", "/system/bin/stat", "/system/bin/strings",
+        "/system/bin/swapoff", "/system/bin/swapon", "/system/bin/sync",
+        "/system/bin/sysctl", "/system/bin/tac", "/system/bin/tail",
+        "/system/bin/tar", "/system/bin/taskset", "/system/bin/tee",
+        "/system/bin/time", "/system/bin/timeout", "/system/bin/touch",
+        "/system/bin/tr", "/system/bin/true", "/system/bin/truncate",
+        "/system/bin/umount", "/system/bin/uname", "/system/bin/uniq",
+        "/system/bin/unix2dos", "/system/bin/usleep", "/system/bin/vmstat",
+        "/system/bin/wc", "/system/bin/which", "/system/bin/whoami",
+        "/system/bin/xargs",
+        "/system/bin/yes");
+set_metadata_recursive("/system", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/bin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/bin/ATFWD-daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:atfwd_exec:s0");
+set_metadata("/system/bin/PktRspTest", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:diag_exec:s0");
+set_metadata("/system/bin/StoreKeybox", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sectest_exec:s0");
+set_metadata("/system/bin/adsprpcd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:adsprpcd_exec:s0");
+set_metadata("/system/bin/app_process32", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
+set_metadata("/system/bin/app_process64", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:zygote_exec:s0");
+set_metadata("/system/bin/athdiag", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_service_exec:s0");
+set_metadata("/system/bin/audiod", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:audiod_exec:s0");
+set_metadata("/system/bin/blkid", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:blkid_exec:s0");
+set_metadata("/system/bin/bootanimation", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:bootanim_exec:s0");
+set_metadata("/system/bin/clatd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:clatd_exec:s0");
+set_metadata("/system/bin/cnd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:cnd_exec:s0");
+set_metadata("/system/bin/cnss-daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_service_exec:s0");
+set_metadata("/system/bin/cnss_diag", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_service_exec:s0");
+set_metadata("/system/bin/debuggerd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
+set_metadata("/system/bin/debuggerd64", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
+set_metadata("/system/bin/dex2oat", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dex2oat_exec:s0");
+set_metadata("/system/bin/dhcpcd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dhcp_exec:s0");
+set_metadata("/system/bin/diag_dci_sample", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:diag_exec:s0");
+set_metadata("/system/bin/diag_klog", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:diag_exec:s0");
+set_metadata("/system/bin/diag_mdlog", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:qlogd_exec:s0");
+set_metadata("/system/bin/diag_socket_log", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:diag_exec:s0");
+set_metadata("/system/bin/diag_uart_log", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:diag_exec:s0");
+set_metadata("/system/bin/dnsmasq", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dnsmasq_exec:s0");
+set_metadata("/system/bin/dpmd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dpmd_exec:s0");
+set_metadata("/system/bin/drmserver", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:drmserver_exec:s0");
+set_metadata("/system/bin/dumpstate", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dumpstate_exec:s0");
+set_metadata("/system/bin/dun-server", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dun-server_exec:s0");
+set_metadata("/system/bin/e2fsck", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:fsck_exec:s0");
+set_metadata("/system/bin/energy-awareness", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:energyawareness_exec:s0");
+set_metadata("/system/bin/fingerprintd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:fingerprintd_exec:s0");
+set_metadata("/system/bin/fsck.f2fs", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:fsck_exec:s0");
+set_metadata("/system/bin/fsck_msdos", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:fsck_exec:s0");
+set_metadata("/system/bin/fstman", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:fstman_exec:s0");
+set_metadata("/system/bin/garden_app", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:location_exec:s0");
+set_metadata("/system/bin/gatekeeperd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:gatekeeperd_exec:s0");
+set_metadata("/system/bin/gpsone_daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:location_exec:s0");
+set_metadata("/system/bin/gx_fpd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:gx_fpd_exec:s0");
+set_metadata("/system/bin/hal_proxy_daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_service_exec:s0");
+set_metadata("/system/bin/hostapd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:hostapd_exec:s0");
+set_metadata("/system/bin/hostapd_cli", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:hostapd_exec:s0");
+set_metadata("/system/bin/hs20-osu-client", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_service_exec:s0");
+set_metadata("/system/bin/hvdcp_opti", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:hvdcp_exec:s0");
+set_metadata("/system/bin/ifaadaemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ifaadaemon_exec:s0");
+set_metadata("/system/bin/ims_rtp_daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ims_exec:s0");
+set_metadata("/system/bin/imscmservice", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:imscm_exec:s0");
+set_metadata("/system/bin/imsdatadaemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ims_exec:s0");
+set_metadata("/system/bin/imsqmidaemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ims_exec:s0");
+set_metadata("/system/bin/install-recovery.sh", "uid", 0, "gid", 0, "mode", 0750, "capabilities", 0x0, "selabel", "u:object_r:install_recovery_exec:s0");
+set_metadata("/system/bin/installd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:installd_exec:s0");
+set_metadata("/system/bin/iop", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dumpstate_exec:s0");
+set_metadata("/system/bin/ipacm", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ipacm_exec:s0");
+set_metadata("/system/bin/ipacm-diag", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ipacm-diag_exec:s0");
+set_metadata("/system/bin/irsc_util", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:irsc_util_exec:s0");
+set_metadata("/system/bin/iwpriv", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_service_exec:s0");
+set_metadata("/system/bin/keystore", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:keystore_exec:s0");
+set_metadata("/system/bin/klogd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:klogd_exec:s0");
+set_metadata("/system/bin/ks", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mdm_helper_exec:s0");
+set_metadata("/system/bin/lmkd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:lmkd_exec:s0");
+set_metadata("/system/bin/loc_launcher", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:location_exec:s0");
+set_metadata("/system/bin/logcat", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:logcat_exec:s0");
+set_metadata("/system/bin/logd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:logd_exec:s0");
+set_metadata("/system/bin/lowi-server", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:location_exec:s0");
+set_metadata("/system/bin/mdm_helper", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mdm_helper_exec:s0");
+set_metadata("/system/bin/mdm_helper_proxy", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mdm_helper_exec:s0");
+set_metadata("/system/bin/mdnsd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mdnsd_exec:s0");
+set_metadata("/system/bin/mediaserver", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mediaserver_exec:s0");
+set_metadata("/system/bin/mm-qcamera-daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mm-qcamerad_exec:s0");
+set_metadata("/system/bin/mmi", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mmi_exec:s0");
+set_metadata("/system/bin/msm_irqbalance", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:msm_irqbalanced_exec:s0");
+set_metadata("/system/bin/mtpd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mtp_exec:s0");
+set_metadata("/system/bin/ndc", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_service_exec:s0");
+set_metadata("/system/bin/netd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:netd_exec:s0");
+set_metadata("/system/bin/netmgrd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:netmgrd_exec:s0");
+set_metadata("/system/bin/patchoat", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:dex2oat_exec:s0");
+set_metadata("/system/bin/performanceadjustor", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:debuggerd_exec:s0");
+set_metadata("/system/bin/pktlogconf", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_service_exec:s0");
+set_metadata("/system/bin/pm-proxy", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:per_mgr_exec:s0");
+set_metadata("/system/bin/pm-service", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:per_mgr_exec:s0");
+set_metadata("/system/bin/port-bridge", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:port-bridge_exec:s0");
+set_metadata("/system/bin/pppd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ppp_exec:s0");
+set_metadata("/system/bin/qcom-system-daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:qcomsysd_exec:s0");
+set_metadata("/system/bin/qfipsverify", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sectest_exec:s0");
+set_metadata("/system/bin/qfp-daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:qfp-daemon_exec:s0");
+set_metadata("/system/bin/qmuxd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:qmuxd_exec:s0");
+set_metadata("/system/bin/qseecom_sample_client", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sectest_exec:s0");
+set_metadata("/system/bin/qseecom_security_test", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sectest_exec:s0");
+set_metadata("/system/bin/qseecomd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:tee_exec:s0");
+set_metadata("/system/bin/racoon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:racoon_exec:s0");
+set_metadata("/system/bin/rild", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:rild_exec:s0");
+set_metadata("/system/bin/rmt_storage", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:rmt_storage_exec:s0");
+set_metadata("/system/bin/run-as", "uid", 0, "gid", 2000, "mode", 0750, "capabilities", 0xc0, "selabel", "u:object_r:runas_exec:s0");
+set_metadata("/system/bin/scitd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:scitd_exec:s0");
+set_metadata("/system/bin/sdcard", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sdcardd_exec:s0");
+set_metadata("/system/bin/secure_ui_sample_client", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sectest_exec:s0");
+set_metadata("/system/bin/sensors.qcom", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sensors_exec:s0");
+set_metadata("/system/bin/servicemanager", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:servicemanager_exec:s0");
+set_metadata("/system/bin/sgdisk", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sgdisk_exec:s0");
+set_metadata("/system/bin/sh", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:shell_exec:s0");
+set_metadata("/system/bin/sigma_dut", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_service_exec:s0");
+set_metadata("/system/bin/smartcmd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:scitd_exec:s0");
+set_metadata("/system/bin/sns_cm_test", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:sensors_test_exec:s0");
+set_metadata("/system/bin/ssr_diag", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ssr_diag_exec:s0");
+set_metadata("/system/bin/ssr_setup", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:ssr_setup_exec:s0");
+set_metadata("/system/bin/sswap", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:scitd_exec:s0");
+set_metadata("/system/bin/subsystem_ramdump", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:subsystem_ramdump_exec:s0");
+set_metadata("/system/bin/surfaceflinger", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:surfaceflinger_exec:s0");
+set_metadata("/system/bin/tbaseLoader", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:tbaseLoader_exec:s0");
+set_metadata("/system/bin/test_diag", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:diag_exec:s0");
+set_metadata("/system/bin/tftp_server", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:rfs_access_exec:s0");
+set_metadata("/system/bin/time_daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:time_daemon_exec:s0");
+set_metadata("/system/bin/tloc_daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:tlocd_exec:s0");
+set_metadata("/system/bin/toolbox", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:toolbox_exec:s0");
+set_metadata("/system/bin/toybox", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:toolbox_exec:s0");
+set_metadata("/system/bin/tzdatacheck", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:tzdatacheck_exec:s0");
+set_metadata("/system/bin/uncrypt", "uid", 0, "gid", 0, "mode", 0750, "capabilities", 0x0, "selabel", "u:object_r:uncrypt_exec:s0");
+set_metadata("/system/bin/usf_proximity", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:usf_exec:s0");
+set_metadata("/system/bin/usf_tester", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:usf_exec:s0");
+set_metadata("/system/bin/vdc", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:vdc_exec:s0");
+set_metadata("/system/bin/vold", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:vold_exec:s0");
+set_metadata("/system/bin/wcnss_filter", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wcnss_filter_exec:s0");
+set_metadata("/system/bin/wfdservice", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wfdservice_exec:s0");
+set_metadata("/system/bin/wifi_fccutild", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wifi_fccutild_exec:s0");
+set_metadata("/system/bin/wpa_supplicant", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:wpa_exec:s0");
+set_metadata("/system/etc/dhcpcd/dhcpcd-run-hooks", "uid", 1014, "gid", 2000, "mode", 0550, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/etc/ppp", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0555, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/lib64/libfpnav.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:gx_fpd_lib_file:s0");
+set_metadata("/system/lib64/libfpservice.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:gx_fpd_lib_file:s0");
+set_metadata("/system/recovery-from-boot.p", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0);
+set_metadata_recursive("/system/rfs", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:rfs_system_file:s0");
+set_metadata("/system/vendor", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/CTA", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/CTA/data", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/CTA/data/local.prop", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/ChinaMobile", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/ChinaMobile/.preloadspec", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/ChinaMobile/data/modem_config/config_modem_mode.xml", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/ChinaMobile/exclude.list", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/ChinaMobile/system/vendor/vendor.prop", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/CmccPower", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/CmccPower/.preloadspec", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/CmccPower/exclude.list", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/CmccPower/system/vendor/power.prop", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/Default", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/Default/.preloadspec", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/app", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/app/NQNfcNci/NQNfcNci.apk", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/app/NQNfcNci/oat/arm64/NQNfcNci.odex", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/app/RIDLClient/RIDLClient.apk", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/app/RIDLClient/oat/arm64/RIDLClient.odex", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/bin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/bin/RIDLClient.exe", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:RIDL_exec:s0");
+set_metadata("/system/vendor/bin/mdtpd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mdtpdaemon_exec:s0");
+set_metadata("/system/vendor/bin/mm-pp-daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mm-pp-daemon_exec:s0");
+set_metadata("/system/vendor/bin/mm-pp-dpps", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:mm-pp-daemon_exec:s0");
+set_metadata("/system/vendor/bin/pd-mapper", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:pd_mapper_exec:s0");
+set_metadata("/system/vendor/bin/perfd", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:perfd_exec:s0");
+set_metadata("/system/vendor/bin/qseeproxydaemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:qseeproxy_exec:s0");
+set_metadata("/system/vendor/bin/qseeproxysampledaemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:qseeproxysample_exec:s0");
+set_metadata("/system/vendor/bin/qti", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:qti_exec:s0");
+set_metadata("/system/vendor/bin/slim_daemon", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:location_exec:s0");
+set_metadata("/system/vendor/bin/thermal-engine", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:thermal-engine_exec:s0");
+set_metadata("/system/vendor/etc", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/etc/RIDL", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/etc/nxp", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/etc/scve", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/etc/scve/facereco", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/etc/scve/facereco/gModel.dat", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/etc/scve/textreco", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/etc/scve/textreco/chardecoder", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/etc/scve/textreco/textdetector", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/etc/scve/textreco/textdetector/cnn_multiLang1020.bin", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/etc/scve/textreco/worddecoder", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/exclude", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/firmware", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/firmware/libpn548ad_fw.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/egl", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/hw", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/lib/mediadrm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/mediadrm/libdrmclearkeyplugin.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/lib/qcdrm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/lib/qcdrm/playready", "uid", 0, "gid", 0, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/qcdrm/playready", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/qcdrm/playready/lib", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/lib/qcdrm/playready/lib/drm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/qcdrm/playready/lib/mediadrm", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/rfsa", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/rfsa/adsp", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib/soundfx", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib64", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib64/egl", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib64/hw", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/vendor/lib64/mediadrm", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib64/mediadrm/libdrmclearkeyplugin.so", "uid", 0, "gid", 0, "mode", 0644, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/lib64/soundfx", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/system/vendor/speccfg", "uid", 0, "gid", 2000, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata_recursive("/system/xbin", "uid", 0, "gid", 2000, "dmode", 0755, "fmode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+run_program("/tmp/gmsutil.sh", "recover");
+show_progress(0.250000, 2);
+package_extract_file("boot.img", "/dev/block/bootdevice/by-name/boot");
+unmount("/system");

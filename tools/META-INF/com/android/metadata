@@ -1,0 +1,3 @@
+post-build=SMARTISAN/colombo/colombo:6.0.1/MXB48T/23:user/release-keys
+post-timestamp=1481128817
+pre-device=colombo
