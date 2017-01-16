@@ -5,7 +5,7 @@ FSTABLE=3221225472;
 
 USER=`whoami`
 
-echo "Start to Build Smartiscan ($DEVICE)"
+echo "Start to Build Smartisan ($DEVICE)"
 
 if [ -d "workspace" ]; then
 	echo "Cleaning Up..."
